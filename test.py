@@ -27,13 +27,15 @@ def play_game():
             # print(f"eval: {evaluate_board(board, True)}")
             print("White's turn")
             print(f"suggested move: {mini_max(board, 3, True)}")
+            _, suggested_move = mini_max(board, 3, True)
         else:
             print("Black's turn")
             print(f"suggested move: {mini_max(board, 3, False)}")
+            _, suggested_move = mini_max(board, 3, False)
             # print(f"eval: {evaluate_board(board, False)}")
 
-        move = get_move(board)
-        board.push(move)
+        # move = get_move(board)
+        board.push(suggested_move)
         print_board(board)
 
     print("Game Over")
