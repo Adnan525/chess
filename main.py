@@ -6,24 +6,6 @@ import math
 #     # if linux then will return "posix" so use clear to clear the screen
 #     os.system('cls' if os.name == 'nt' else 'clear')
 
-def evaluate_board(board):
-    # simplest evaluation function, just summing up the piece values
-    return sum(piece_value(piece) for piece in board.piece_map().values())
-
-def piece_value(piece):
-    if piece.symbol() == 'P': # pawn
-        return 1
-    elif piece.symbol() == 'N' or piece.symbol() == 'B': # knight or bishop
-        return 3
-    elif piece.symbol() == 'R': # rook or castle
-        return 5
-    elif piece.symbol() == 'Q':
-        return 9
-    elif piece.symbol() == 'K':
-        return 100
-    else:
-        return 0
-
 def minimax(board, depth, alpha, beta, maximizing_player):
     if depth == 0 or board.is_game_over():
         return evaluate_board(board)
