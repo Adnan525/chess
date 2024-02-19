@@ -11,11 +11,11 @@ def evaluate_board(board):
     return sum(piece_value(piece) for piece in board.piece_map().values())
 
 def piece_value(piece):
-    if piece.symbol() == 'P':
+    if piece.symbol() == 'P': # pawn
         return 1
-    elif piece.symbol() == 'N' or piece.symbol() == 'B':
+    elif piece.symbol() == 'N' or piece.symbol() == 'B': # knight or bishop
         return 3
-    elif piece.symbol() == 'R':
+    elif piece.symbol() == 'R': # rook or castle
         return 5
     elif piece.symbol() == 'Q':
         return 9
