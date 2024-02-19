@@ -1,5 +1,6 @@
 import chess
 from board_eval import evaluate_board
+from mini_max import mini_max
 
 def print_board(board):
     print(board)
@@ -23,11 +24,13 @@ def play_game():
 
     while not board.is_game_over():
         if board.turn == chess.WHITE:
-            print(f"eval: {evaluate_board(board, True)}")
+            # print(f"eval: {evaluate_board(board, True)}")
             print("White's turn")
+            print(f"suggested move: {mini_max(board, 3, True)}")
         else:
             print("Black's turn")
-            print(f"eval: {evaluate_board(board, False)}")
+            print(f"suggested move: {mini_max(board, 3, False)}")
+            # print(f"eval: {evaluate_board(board, False)}")
 
         move = get_move(board)
         board.push(move)

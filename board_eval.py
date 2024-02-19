@@ -11,17 +11,17 @@ def evaluate_board(board, color):
         # True for white, false for black
         if piece.color == color:
             total_eval += piece_value(piece)
-            print(f"piece eval {piece, piece_value(piece)}")
+            # print(f"piece eval {piece, piece_value(piece)}")
 
             # Add positional heatmap value
             piece_heatmap = create_positional_heatmap(piece)
             if piece.color == True:
                 total_eval += piece_heatmap[square]
-                print(f"positional val {square, piece_heatmap[square]}")
+                # print(f"positional val {square, piece_heatmap[square]}")
             elif piece.color == False:
                 # Invert the board for black pieces
                 total_eval += piece_heatmap[square]
-                print(f"positional val {square, piece_heatmap[square]}")
+                # print(f"positional val {square, piece_heatmap[square]}")
 
             # Add central control bonus
             total_eval += check_central_control(piece, square)    
