@@ -14,7 +14,7 @@ def create_positional_heatmap(piece):
             [0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00]
         ]
     elif piece.symbol() == 'P':  # Pawn
-        heatmap = create_pawn_heatmap(piece.color())
+        heatmap = create_pawn_heatmap(piece.color)
     elif piece.symbol() == 'B':  # Bishop
         heatmap = [
             [0.02, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.02],
@@ -27,11 +27,12 @@ def create_positional_heatmap(piece):
             [0.02, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.02]
         ]
     elif piece.symbol() == 'K':  # King
-        heatmap = create_king_heatmap(piece.color())
+        heatmap = create_king_heatmap(piece.color)
 
     return heatmap
 
 def create_pawn_heatmap(color):
+    pawn_values = []
     if color == 'black':
         pawn_values = [ 
             [0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00],
@@ -57,6 +58,7 @@ def create_pawn_heatmap(color):
     return pawn_values
 
 def create_king_heatmap(color):
+    heatmap = []
     if color == 'black':
         heatmap = [ 
             [0.05, 0.50, 0.10, 0.00, 0.00, 0.00, 0.10, 0.05],
